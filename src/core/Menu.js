@@ -51,7 +51,9 @@ const Menu = ({ history }) => (
                     </li>
                 </Fragment>
             )}
-
+            <li className='nav-item'>
+                <Link className='nav-link' style={isActive(history, '/aboutus')} to='/aboutus'>About us</Link>
+            </li>
             {isAuthenticated() && (
                 <li className='nav-item'>
                     <span className='nav-link' style={{ cursor: 'pointer', color: '#e60e23' }}
@@ -61,6 +63,7 @@ const Menu = ({ history }) => (
                     >Logout</span>
                 </li>
             )}
+
 
         </ul>
     </div>
