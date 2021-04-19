@@ -7,7 +7,7 @@ const AboutUs = () => {
         <Layout title='Home Page' description='Node React e-commerce App' className='container-fluid'>
             <div className="container">
                 <div className="row">
-                    <div className="col-sm-6 lead">
+                    <div className="col-sm-6 lead mt-4">
                         <h3>Introduction of wesite</h3>
                         <p>This is ecommerce website</p>
                         <p>SignUp first for user Account</p>
@@ -19,7 +19,7 @@ const AboutUs = () => {
                         <p>After purchasing products user can see their History form Daashboard</p>
                         <p>User also can update their profile </p>
                     </div>
-                    <div className="col-sm-6 lead">
+                    <div className="col-sm-6 lead mt-4">
                         <h3>Admin Section</h3>
                         <p>Adimin can <b>create, delete, update</b> the products and category from Daashboard.</p>
                         <p>Admin can View the orders</p>
