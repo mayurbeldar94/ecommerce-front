@@ -16,6 +16,8 @@ const UpdateProduct = ({ match }) => {
         shopping: '',
         quantity: '',
         photo: '',
+        photo1: '',
+        photo2: '',
         loading: false,
         error: false,
         createdProduct: '',
@@ -79,8 +81,24 @@ const UpdateProduct = ({ match }) => {
     }, [])
 
     const handleChange = name => event => {
-        const value = name === 'photo' ? event.target.files[0] : event.target.value
-        formData.set(name, value)
+        //   const value = name === 'photo' ? event.target.files[0] : event.target.value
+        let value = ''
+        if (name === 'photo') {
+            value = event.target.files[0]
+            formData.set(name, value)
+        }
+        else if (name === 'photo1') {
+            value = event.target.files[0]
+            formData.set(name, value)
+        }
+        else if (name === 'photo2') {
+            value = event.target.files[0]
+            formData.set(name, value)
+        } else {
+            value = event.target.value
+            formData.set(name, value)
+        }
+        // formData.set(name, value)
         setValues({ ...values, [name]: value })
     }
 
@@ -98,6 +116,8 @@ const UpdateProduct = ({ match }) => {
                         price: '',
                         quantity: '',
                         photo: '',
+                        photo1: '',
+                        photo2: '',
                         loading: false,
                         error: false,
                         redirectToProfile: true,
@@ -113,6 +133,16 @@ const UpdateProduct = ({ match }) => {
             <div className='form-group'>
                 <label className='btn btn-secondary'>
                     <input onChange={handleChange('photo')} type='file' name='photo' accept='image/*' />
+                </label>
+            </div>
+            <div className='form-group'>
+                <label className='btn btn-secondary'>
+                    <input onChange={handleChange('photo1')} type='file' name='photo1' accept='image/*' />
+                </label>
+            </div>
+            <div className='form-group'>
+                <label className='btn btn-secondary'>
+                    <input onChange={handleChange('photo2')} type='file' name='photo2' accept='image/*' />
                 </label>
             </div>
 
@@ -160,6 +190,7 @@ const UpdateProduct = ({ match }) => {
     )
     const showError = () => (
         <div className='alert alert-danger mt-3' style={{ display: error ? '' : 'none' }}>
+            <h2>the product was not updated</h2>
             {error}
         </div>
     )

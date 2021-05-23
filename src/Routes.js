@@ -18,6 +18,7 @@ import Profile from './user/Profile'
 import ManageProducts from './admin/ManageProducts'
 import UpdateProduct from './admin/UpdateProduct'
 import DeleteCategory from './admin/DeleteCategory'
+import ManageList from './admin/ManageList'
 
 
 
@@ -40,10 +41,7 @@ const Routes = () => {
             <AdminRoute path='/admin/products' exact component={ManageProducts} />
             <AdminRoute path='/admin/product/update/:productId' exact component={UpdateProduct} />
             <AdminRoute path='/admin/category' exact component={DeleteCategory} />
-
-
-
-
+            <AdminRoute path='/admin/list' exact component={ManageList} />
         </Switch>
     </BrowserRouter>)
 }

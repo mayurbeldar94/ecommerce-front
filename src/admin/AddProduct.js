@@ -16,6 +16,8 @@ const AddProduct = () => {
         shopping: '',
         quantity: '',
         photo: '',
+        photo1: '',
+        photo2: '',
         loading: false,
         error: '',
         createdProduct: '',
@@ -56,11 +58,30 @@ const AddProduct = () => {
     }, [])
 
     const handleChange = name => event => {
-        const value = name === 'photo' ? event.target.files[0] : event.target.value
-        formData.set(name, value)
+        //  let value = name === 'photo' || 'photo1' || 'photo2' ? event.target.files[0] : event.target.value
+        let value = ''
+        if (name === 'photo') {
+            value = event.target.files[0]
+            formData.set(name, value)
+        }
+        else if (name === 'photo1') {
+            value = event.target.files[0]
+            formData.set(name, value)
+        }
+        else if (name === 'photo2') {
+            value = event.target.files[0]
+            formData.set(name, value)
+        } else {
+            value = event.target.value
+            formData.set(name, value)
+        }
+        // formData.set(name, value)
+        console.log("name :", name, "value: ", value)
+
+
         setValues({ ...values, [name]: value })
     }
-
+    console.log(values)
     const clickSubmit = event => {
         event.preventDefault()
         setValues({ ...values, error: '', loading: true })
@@ -75,6 +96,8 @@ const AddProduct = () => {
                         price: '',
                         quantity: '',
                         photo: '',
+                        photo1: '',
+                        photo2: '',
                         loading: false,
                         createdProduct: data.name
                     })
@@ -90,7 +113,16 @@ const AddProduct = () => {
                     <input onChange={handleChange('photo')} type='file' name='photo' accept='image/*' />
                 </label>
             </div>
-
+            <div className='form-group'>
+                <label className='btn btn-secondary'>
+                    <input onChange={handleChange('photo1')} type='file' name='photo1' accept='image/*' />
+                </label>
+            </div>
+            <div className='form-group'>
+                <label className='btn btn-secondary'>
+                    <input onChange={handleChange('photo2')} type='file' name='photo2' accept='image/*' />
+                </label>
+            </div>
             <div className='form-group'>
                 <label className='text-muted'>Name</label>
                 <input onChange={handleChange('name')} type='text' className='form-control' value={name} />

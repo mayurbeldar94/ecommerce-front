@@ -20,6 +20,7 @@ export const createCategory = (userId, token, category) => {
 }
 
 export const createProduct = (userId, token, product) => {
+    console.log(product)
     return fetch(`${API}/product/create/${userId}`, {
         method: 'POST',
         headers: {
@@ -105,7 +106,7 @@ export const updateOrderStatus = (userId, token, orderId, status) => {
 //delete single product
 
 export const getProducts = () => {
-    return fetch(`${API}/products?limit=undefined`, {
+    return fetch(`${API}/products?limit=undefine`, {
         method: 'GET'
     })
         .then(response => {
@@ -170,6 +171,53 @@ export const deleteCategory = (categoryId, userId, token) => {
             "Content-Type": 'application/json',
             Authorization: `Bearer ${token}`
         }
+    })
+        .then(response => {
+            return response.json()
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+//router.get('/product/photo/:productId', photo)
+
+export const getImage1 = (productId) => {
+    return fetch(`${API}/product/photo/${productId}`, {
+        method: 'GET'
+    })
+        .then(response => {
+            return response.json()
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+export const getImage2 = (productId) => {
+    return fetch(`${API}/product/photo2/${productId}`, {
+        method: 'GET'
+    })
+        .then(response => {
+            return response.json()
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+export const getImage3 = (productId) => {
+    return fetch(`${API}/product/photo3/${productId}`, {
+        method: 'GET'
+    })
+        .then(response => {
+            return response.json()
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+
+export const ShowImages = (productId) => {
+    return fetch(`${API}/product/photos/${productId}`, {
+        method: 'GET'
     })
         .then(response => {
             return response.json()
